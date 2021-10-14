@@ -1,0 +1,24 @@
+
+
+    
+        <div class="bg p-shadow-7"> 
+            <p-card header="Login">
+                <form [formGroup]="form">
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="firstname1">Username</label>
+                    <input id="firstname1" formControlName="Username" type="text" pInputText>
+                    <small *ngIf="categoryForm.Username.invalid && isSubmitted" class="p-error">UserName is requried</small>
+                </div>
+                <div class="p-field">
+                    <label for="Password">Password</label>
+                  
+                    <input id="Password" type="text" formControlName="Password" pInputText> 
+                    <small *ngIf="categoryForm.Password.invalid && isSubmitted" class="p-error">Password is requried</small>
+                </div>
+            </div>
+            <button pButton pRipple type="button" (click)="OnSubmit()" label="Submit" class="p-button-raised btnn"></button>
+        </form>
+        </p-card>
+    </div>
+    

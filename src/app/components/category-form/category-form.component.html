@@ -1,0 +1,84 @@
+<!-- <p-card header="Add Category">
+    <form >
+        <div class="form-group">
+
+        
+    <p-toolbar>
+        <div class="p-toolbar-group-left">
+            <p-button label="Create" icon="pi pi-plus" (click)="onSubmit()" styleClass="p-button-primary"></p-button>
+            <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-danger"></p-button>
+        </div>
+    </p-toolbar>
+
+    <div class="p-fluid">
+        <div class="p-field">
+            <label for="ProductName">ProductName</label>
+            <input id="ProductName" name="ProductName" [(ngModel)]="CategoryData.ProductName"type="text" pInputText> 
+            
+        </div>
+        <div class="p-field">
+            <label for="Brand">Brand</label>
+            <input id="Brand"name="Brand" [(ngModel)]="CategoryData.Brand" type="text" pInputText> 
+        </div>
+        <div class="p-field">
+            <label for="color">Color</label>
+            <input id="color"name="color"[(ngModel)]="CategoryData.color" type="text" pInputText> 
+        </div>
+        <div class="p-field">
+            <label for="Quantity">Quantity</label>
+            <input id="Quantity" name="Quantity"[(ngModel)]="CategoryData.Quantity" type="text" pInputText> 
+        </div>
+        <div class="p-field">
+            <label for="Price">Price</label>
+            <input id="Price" name="Price"[(ngModel)]="CategoryData.Price" type="text" pInputText> 
+        </div>
+    </div>
+</div>
+</form>
+
+</p-card> -->
+
+<p-card [header]="editmode ? 'Edit Category' : 'Add Category'"
+[subheader]= "editmode ? ' You can  edit categories here' : 'You can add categories here'" >
+    <form [formGroup] = 'form'>
+        <div class="form-group">
+
+        
+    <p-toolbar>
+        <div class="p-toolbar-group-left">
+            <p-button   [label]="editmode ? 'Update' : 'Create'" icon="pi pi-plus" (click)="onSubmit()" styleClass="p-button-primary"></p-button>
+            <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-danger"></p-button>
+        </div>
+    </p-toolbar>
+
+    <div class="p-fluid">
+        <div class="p-field">
+            <label for="ProductName">ProductName</label>
+            <input id="ProductName" formControlName="ProductName" type="text" pInputText> 
+            <small *ngIf="categoryForm.ProductName.invalid && isSubmitted" class="p-error">ProductName is requried</small>
+        </div>
+        <div class="p-field">
+            <label for="Brand">Brand</label>
+            <input id="Brand" formControlName="Brand"  type="text" pInputText> 
+            <small *ngIf="categoryForm.Brand.invalid && isSubmitted" class="p-error">Brand is requried</small>
+        </div>
+        <div class="p-field">
+            <label for="color">Color</label>
+            <input id="color"formControlName="color"type="text" pInputText> 
+            <small *ngIf="categoryForm.color.invalid && isSubmitted" class="p-error">color is requried</small>
+        </div>
+        <div class="p-field">
+            <label for="Quantity">Quantity</label>
+            <input id="Quantity" formControlName="Quantity" type="text" pInputText> 
+            <small *ngIf="categoryForm.Quantity.invalid && isSubmitted" class="p-error">Quantity is requried</small>
+        </div>
+        <div class="p-field">
+            <label for="Price">Price</label>
+            <input id="Price" formControlName="Price" type="text" pInputText>
+            <small *ngIf="categoryForm.Price.invalid && isSubmitted" class="p-error">Price is requried</small> 
+        </div>
+    </div>
+</div>
+</form>
+
+</p-card>

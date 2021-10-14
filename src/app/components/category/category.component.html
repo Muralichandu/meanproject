@@ -1,0 +1,43 @@
+<p-toast></p-toast>
+<p-card>
+    <p-toolbar>
+        <div class="p-toolbar-group-left">
+            <p-button label="Add" routerLink="/category-form" icon="pi pi-plus"></p-button>
+        </div>
+    </p-toolbar>
+    <p-table [value]="categories">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>ProductName</th>
+                <th>Brand</th>
+                <th>Quantity</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" >
+            <tr *ngFor="let category of categories">
+                <td>{{category._id}}</td>
+                <td>{{category.ProductName}}</td>
+                <td>{{category.Brand}}</td>
+                <td>{{category.Quantity}}</td>
+                <td>{{category.color}}</td>
+                <td>{{category.Price}}</td>
+                <td>
+                    <p-button
+                      (click)="deleteCategory(category.id)"
+                      styleClass="p-button-danger p-mr-2"
+                      icon="pi pi-trash"
+                    ></p-button>
+                    <p-button
+                    (click)="updateCategory(category.id)"
+                    styleClass="p-button-success"
+                    icon="pi pi-pencil"
+                  ></p-button>
+                  </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

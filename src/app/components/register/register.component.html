@@ -1,0 +1,53 @@
+<!-- <div class="bg"> 
+    <p-card header="Register">
+        <form>
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="UserName">UserName</label>
+                    <input id="UserName" name="Username" [(ngModel)]="Registeruserdata.Username" type="text" pInputText> 
+                </div>
+                <div class="p-field">
+                    <label for="Password">Password</label>
+                    <input id="Password" type="text" name="Password"[(ngModel)]="Registeruserdata.Password" pInputText> 
+                </div>
+            </div>
+            <button pButton pRipple type="button" (click)="register()" label="Submit" class="p-button-raised btnn"></button>
+        </form>
+       
+    </p-card>
+</div>
+ -->
+ <div class="bg"> 
+    <p-card header="Register">
+        <form [formGroup] = 'form'>
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="Username">UserName</label>
+                    <input id="Username" formControlName="Username" type="text" pInputText> 
+                    <small *ngIf="m.Username.invalid && isSubmitted" class="p-error">Username is requried</small>
+                </div>
+                <div class="p-field">
+                    <label for="Password">Password</label>
+                    <input id="Password" type="text" formControlName="Password" pInputText> 
+                    <small  *ngIf="m.Password.invalid && isSubmitted"  class="p-error">Password is requried</small>
+                </div>
+                <div class="p-field">
+                    <label for="Email">Email</label>
+                    <input id="Email" type="text" formControlName="Email" pInputText> 
+                    <small  *ngIf="m.Email.invalid && isSubmitted"  class="p-error">Email is requried</small>
+                </div>
+                <div class="p-field">
+                    <label for="PhoneNumber">PhoneNumber</label>
+                    <input id="PhoneNumber" type="text" formControlName="PhoneNumber" pInputText> 
+                    <small  *ngIf="m.PhoneNumber.invalid && isSubmitted"  class="p-error">PhoneNumber is requried</small>
+                    <small  *ngIf="m.PhoneNumber.errors?.pattern"  class="p-error">Mobile number is not 10 digit</small>
+                </div> 
+
+            </div>
+            <button pButton pRipple type="button"  (click)="register()" label="Submit" class="p-button-raised btnn"></button>
+        </form>
+       
+    </p-card>
+</div>
+
+
